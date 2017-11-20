@@ -16,7 +16,6 @@ public class EvolutionController {
 	public static void main(String[] args) {
 		generate_population();
 		
-		//TODO: Need to use a while loop here
 		while(GENERATION < 100) {
 			calculate_fitness();
 			order_population();
@@ -47,21 +46,13 @@ public class EvolutionController {
 			}
 			
 			System.out.println("SCORE: " + POPULATION.get(i).get_score() + " DNA: " + POPULATION.get(i).printDna());
-			
-		/*if(POPULATION.get(i).get_score() == BEST_SCORE) {
-				System.out.println("-------------------------------------");
-				System.out.println("BEST REACHED: " );
-				System.out.println(POPULATION.get(i).generation + " " + POPULATION.get(i).score + " " + POPULATION.get(i).printDna());
-				System.out.println("-------------------------------------");
-				STOP = true;
-			}*/
 		}
 	}
 
 	public static void order_population() {
 		POPULATION.sort(Person :: compareTo);
-/*		System.out.println("Best in generation: " + GENERATION);
-		System.out.println("Gen: " + POPULATION.get(0).generation + " score:" + POPULATION.get(0).score + " DNA: " + POPULATION.get(0).printDna());*/
+		System.out.println("Best in generation: " + GENERATION);
+		System.out.println("Gen: " + POPULATION.get(0).generation + " score:" + POPULATION.get(0).score + " DNA: " + POPULATION.get(0).printDna());
 	}
 
 	public static void cross_over() {
@@ -88,8 +79,6 @@ public class EvolutionController {
 			
 			Person firstPerson = selectedPopulation.get(firstPersonSelected);
 			Person secondPerson = selectedPopulation.get(secondPersonSelected);
-			
-			//TODO: What if both random numbers are the same????
 			
 			nextGen.add(firstPerson);
 			nextGen.add(secondPerson);
